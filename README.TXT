@@ -1,32 +1,17 @@
-========================
-BUILD OUTPUT DESCRIPTION
-========================
+Campo Minado
 
-When you build an Java application project that has a main class, the IDE
-automatically copies all of the JAR
-files on the projects classpath to your projects dist/lib folder. The IDE
-also adds each of the JAR files to the Class-Path element in the application
-JAR files manifest file (MANIFEST.MF).
+O jogo consiste em um tabuleiro com vários blocos em branco. Quando clicados, estes blocos tem seu conteúdo descoberto. Minas são distribuídas aleatóreamente nestes blocos. O jogo termina quando o jogador clica em cima de uma mina, perdendo o jogo ou, quando descobre a localização de todas as minas existentes no tabuleiro tornando-se vencedor.
 
-To run the project from the command line, go to the dist folder and
-type the following:
+Regras do do jogo
 
-java -jar "Campo_Minado.jar" 
+O jogador deve marcar a exata localização de cada mina existente no tabuleiro.
 
-To distribute this project, zip up the dist folder (including the lib folder)
-and distribute the ZIP file.
+O jogo termina com vitória apenas quando todas as minas são descobertas corretamente pelo jogador.
 
-Notes:
+O número máximo de marcações permitidas é o mesmo número do total de minas existentes ao tabuleiro.
 
-* If two JAR files on the project classpath have the same name, only the first
-JAR file is copied to the lib folder.
-* Only JAR files are copied to the lib folder.
-If the classpath contains other types of files or folders, these files (folders)
-are not copied.
-* If a library on the projects classpath also has a Class-Path element
-specified in the manifest,the content of the Class-Path element has to be on
-the projects runtime path.
-* To set a main class in a standard Java project, right-click the project node
-in the Projects window and choose Properties. Then click Run and enter the
-class name in the Main Class field. Alternatively, you can manually type the
-class name in the manifest Main-Class element.
+Complementos
+
+Quando o jogador clica em cima de um bloco vizinho a uma mina um número será mostrado. Este número significa a quantidade de minas presentes na vizinhança deste bloco. Leve em consideração a palavra vizinhança como sendo o limite de um bloco lateral de ambos os lados, acima e abaixo desconsiderando o limite do tabuleiro.
+
+Quando não existe nenhuma mina vizinha a um bloco clicado, este exibe seu conteúdo com uma cor diferenciada dos demais blocos que não foram clicados e, vão automaticamente e recursivamente abrindo os demais blocos em sua vizinhança até o limite do tabuleiro ou quando encontrar um bloco demarcando um mina em sua vizinhança, bloco este que também será exibido.
